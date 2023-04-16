@@ -17,9 +17,9 @@ import StakingTokenBalance from "../components/StakingTokenBalance";
 import BalanceInfo from "../components/BalanceInfo";
 
 export const stakingContractAddress =
-  "0xFC80cf286F7cA344Ea22AE3a9d5E25a3922A6076";
-export const stakingTokenAddress = "0x7792e59817dEDAe651599e9eDE087BE16973606A";
-export const rewardTokenAddress = "0x58605153Aa7EA2e223F422306db3E19D5F8B8BBa";
+  "0xC1B64C583cbaA6DA78Ac3b41367d22B5e0E992Ff";
+export const stakingTokenAddress = "0x056B388bB988f990F15e203f2fe88bE4faeA9846";
+export const rewardTokenAddress = "0x875f1F2A0b579545856060cC15add62bB2b5a038";
 
 const Staking: NextPage = () => {
   const [amountToStake, setAmountToStake] = useState("");
@@ -29,12 +29,15 @@ const Staking: NextPage = () => {
   );
   const { contract: stakingToken, isLoading: isStakingTokenLoading } =
     useContract(stakingTokenAddress, "token");
+  const { data, isLoading } = useContractRead(stakingToken, "contractURI");
 
-  const { contract: rewardToken, isLoading: isRewardTokenLoading } =
-    useContract(rewardTokenAddress, "token");
+  console.log("data", data);
 
-  const { mutateAsync: claimRewards, isLoading: isClaimLoading } =
-    useContractWrite(staking, "claimRewards");
+  // const { contract: rewardToken, isLoading: isRewardTokenLoading } =
+  //   useContract(rewardTokenAddress, "token");
+
+  // const { mutateAsync: claimRewards, isLoading: isClaimLoading } =
+  //   useContractWrite(staking, "claimRewards");
 
   // const handleClaimRewards = useCallback(async () => {
   //   try {
@@ -45,7 +48,7 @@ const Staking: NextPage = () => {
   //   }
   // }, [claimRewards]);
 
-  if (isStakingLoading || isStakingTokenLoading || isClaimLoading) {
+  if (isStakingLoading || isStakingTokenLoading || isLoading) {
     return <div>Loading...</div>;
   }
 
