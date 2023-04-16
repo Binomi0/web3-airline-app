@@ -1,9 +1,4 @@
-import {
-  useAddress,
-  useContract,
-  useContractRead,
-  useTokenBalance,
-} from "@thirdweb-dev/react";
+import { useAddress, useContract, useTokenBalance } from "@thirdweb-dev/react";
 import styles from "../styles/Staking.module.css";
 import { useEffect } from "react";
 import { stakingTokenAddress } from "../pages/staking";

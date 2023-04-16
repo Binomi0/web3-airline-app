@@ -1,9 +1,4 @@
-import {
-  useAddress,
-  useContract,
-  useContractRead,
-  useTokenBalance,
-} from "@thirdweb-dev/react";
+import { useAddress, useContract, useTokenBalance } from "@thirdweb-dev/react";
 import styles from "../styles/Staking.module.css";
 import { useEffect } from "react";
 import { rewardTokenAddress } from "../pages/staking";
@@ -11,7 +6,6 @@ import { rewardTokenAddress } from "../pages/staking";
 const RewardTokenBalance = () => {
   const address = useAddress();
   const { contract, isLoading } = useContract(rewardTokenAddress, "token");
-
   const { data, refetch } = useTokenBalance(contract, address);
 
   useEffect(() => {
