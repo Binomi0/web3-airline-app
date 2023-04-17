@@ -74,7 +74,7 @@ const Staking: NextPage = () => {
             value={amountToStake}
             onChange={(e) => setAmountToStake(e.target.value)}
           />
-          <Web3Button
+          {/* <Web3Button
             className={styles.button}
             contractAddress={stakingContractAddress}
             action={async (contract) => {
@@ -89,9 +89,9 @@ const Staking: NextPage = () => {
             }}
           >
             Stake!
-          </Web3Button>
+          </Web3Button> */}
 
-          <Web3Button
+          {/* <Web3Button
             className={styles.button}
             contractAddress={stakingContractAddress}
             action={async (contract) => {
@@ -102,9 +102,9 @@ const Staking: NextPage = () => {
             }}
           >
             Unstake!
-          </Web3Button>
+          </Web3Button> */}
 
-          <Web3Button
+          {/* <Web3Button
             className={styles.button}
             contractAddress={stakingContractAddress}
             action={async (contract) => {
@@ -113,7 +113,7 @@ const Staking: NextPage = () => {
             }}
           >
             Claim rewards!
-          </Web3Button>
+          </Web3Button> */}
         </div>
 
         <div className={styles.grid}>

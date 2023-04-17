@@ -49,7 +49,10 @@ const Home: NextPage = () => {
 
           <a href="/staking" className={styles.card}>
             <h2>Staking &rarr;</h2>
-            <p>Empieza a hacer Staking con el toke de la aerolínea</p>
+            <p>
+              Empieza a hacer Staking con el toke de la aerolínea más
+              descentralizada.
+            </p>
           </a>
         </div>
       </main>
