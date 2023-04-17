@@ -46,6 +46,11 @@ const Home: NextPage = () => {
               Discover and clone template projects showcasing thirdweb features.
             </p>
           </a>
+
+          <a href="/staking" className={styles.card}>
+            <h2>Staking &rarr;</h2>
+            <p>Empieza a hacer Staking con el toke de la aerolínea</p>
+          </a>
         </div>
       </main>
     </div>

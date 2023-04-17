@@ -14,24 +14,24 @@ import { ethers } from "ethers";
 import StakeInfo from "../components/StakeInfo";
 import RewardTokenBalance from "../components/RewardTokenBalance";
 import StakingTokenBalance from "../components/StakingTokenBalance";
-import BalanceInfo from "../components/BalanceInfo";
+// import BalanceInfo from "../components/BalanceInfo";
 
 export const stakingContractAddress =
-  "0xC1B64C583cbaA6DA78Ac3b41367d22B5e0E992Ff";
-export const stakingTokenAddress = "0x056B388bB988f990F15e203f2fe88bE4faeA9846";
-export const rewardTokenAddress = "0x875f1F2A0b579545856060cC15add62bB2b5a038";
+  "0x3550B7B341C2a56751719a4aE9D01ee28C318907";
+export const stakingTokenAddress = "0xfdc7C97F7B006dDd1F0B48bf35BE5aeB7153d2b6";
+export const rewardTokenAddress = "0x4eF73A2AC6DB13F309F824b7206672954aF62C4d";
 
 const Staking: NextPage = () => {
   const [amountToStake, setAmountToStake] = useState("");
-  const { contract: staking, isLoading: isStakingLoading } = useContract(
-    stakingContractAddress,
-    "custom"
-  );
+  // const { contract: staking, isLoading: isStakingLoading } = useContract(
+  //   stakingContractAddress,
+  //   "custom"
+  // );
   const { contract: stakingToken, isLoading: isStakingTokenLoading } =
     useContract(stakingTokenAddress, "token");
   const { data, isLoading } = useContractRead(stakingToken, "contractURI");
 
-  console.log("data", data);
+  // console.log("data", data);
 
   // const { contract: rewardToken, isLoading: isRewardTokenLoading } =
   //   useContract(rewardTokenAddress, "token");
@@ -48,7 +48,7 @@ const Staking: NextPage = () => {
   //   }
   // }, [claimRewards]);
 
-  if (isStakingLoading || isStakingTokenLoading || isLoading) {
+  if (isStakingTokenLoading || isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -62,7 +62,11 @@ const Staking: NextPage = () => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <BalanceInfo />
+        <a href="/" className={styles.card}>
+          <h2>Home &rarr;</h2>
+          <p>Volver a la página principal</p>
+        </a>
+        {/* <BalanceInfo /> */}
         <div className={styles.stakeContainer}>
           <input
             className={styles.textbox}
@@ -112,11 +116,11 @@ const Staking: NextPage = () => {
           </Web3Button>
         </div>
 
-        {/* <div className={styles.grid}>
+        <div className={styles.grid}>
           <StakingTokenBalance />
           <RewardTokenBalance />
           <StakeInfo />
-        </div> */}
+        </div>
       </main>
     </div>
   );
